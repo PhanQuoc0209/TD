@@ -1,120 +1,116 @@
-import React from "react"
-import Link from "next/link"
-import {
-  FileSearch,
-  Calculator,
-  FileCheck2,
-  Send,
-  ArrowRight,
-  Clock,
-  CheckCircle2
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client"
 
+import React from "react"
+import {
+  FileEdit,
+  Receipt,
+  Network,
+  CheckCircle2,
+  FileSearch,
+  Handshake
+} from "lucide-react"
+
+/**
+ * Section: QUY TRÌNH DỊCH THUẬT CÔNG CHỨNG CHUYÊN NGHIỆP
+ * Designed exactly matching user reference Image 1:
+ * - 6 steps in 2 columns (md/lg)
+ * - Step 1 and Step 6 highlighted in solid royal blue (#0066FF) with white circular icon
+ * - Steps 2, 3, 4, 5 with blue outline circular icon and blue title
+ */
 export function ProcessSection() {
   const steps = [
     {
-      num: "01",
+      num: "BƯỚC 1: TIẾP NHẬN",
+      desc: "Thành Đạt tiếp nhận thông tin và yêu cầu của khách hàng từ các kênh 24/7",
+      icon: FileEdit,
+      isHighlighted: true
+    },
+    {
+      num: "BƯỚC 2: TƯ VẤN DỊCH VỤ",
+      desc: "Chuyên gia Thành Đạt phân tích và đề xuất giải pháp dịch vụ tối ưu cho nhu cầu khách hàng.",
+      icon: Receipt,
+      isHighlighted: false
+    },
+    {
+      num: "BƯỚC 3: KÝ KẾT HỢP ĐỒNG",
+      desc: "Thành Đạt và khách hàng ký cam kết bảo mật, hợp đồng sau khi thống nhất phương án.",
+      icon: Network,
+      isHighlighted: false
+    },
+    {
+      num: "BƯỚC 4: CHUẨN BỊ DỰ ÁN",
+      desc: "Thành Đạt phân bổ đội ngũ chuyên biệt và chuẩn bị hồ sơ kỹ thuật, thuật ngữ, tiến độ dự án.",
+      icon: CheckCircle2,
+      isHighlighted: false
+    },
+    {
+      num: "BƯỚC 5: TRIỂN KHAI",
+      desc: "Thành Đạt triển khai dự án qua dịch thuật, hiệu đính, QC, thẩm định và rà soát linh động.",
       icon: FileSearch,
-      title: "Tiếp Nhận & Đánh Giá Tài Liệu",
-      desc: "Khách hàng gửi file scan/ảnh qua Zalo hoặc mang trực tiếp tới văn phòng. Chuyên viên Thành Đạt phân tích ngôn ngữ, độ dài, tính chất công chứng tư pháp.",
-      time: "10 - 15 phút",
-      highlight: "Tiếp nhận 24/7 online"
+      isHighlighted: false
     },
     {
-      num: "02",
-      icon: Calculator,
-      title: "Báo Giá & Thống Nhất Tiến Độ",
-      desc: "Thành Đạt gửi báo giá trọn gói minh bạch, cam kết thời gian hoàn thành chính xác. Phân bổ hồ sơ ngay cho biên dịch viên chuyên ngành phù hợp.",
-      time: "Rõ ràng - Minh bạch",
-      highlight: "Không phát sinh phụ phí"
-    },
-    {
-      num: "03",
-      icon: FileCheck2,
-      title: "Dịch Thuật & Lấy Dấu Tư Pháp",
-      desc: "Biên dịch viên chuyển ngữ, soát chéo thuật ngữ, hiệu đính định dạng. Trực tiếp thực hiện chứng thực tư pháp tại cơ quan nhà nước có thẩm quyền.",
-      time: "Lấy ngay trong ngày",
-      highlight: "Chuẩn xác 100% ngữ nghĩa"
-    },
-    {
-      num: "04",
-      icon: Send,
-      title: "Bàn Giao Bản Dịch & Lưu Trữ",
-      desc: "Bàn giao hồ sơ bản cứng đóng dấu giáp lai tận nơi hoặc bản mềm file scan rõ nét qua email/Zalo. Hỗ trợ trích lục sao y thêm bất cứ lúc nào.",
-      time: "Giao tận tay đúng hẹn",
-      highlight: "Hỏa tốc Hà Nội & Quảng Ninh"
+      num: "BƯỚC 6: BÀN GIAO",
+      desc: "Thành Đạt thực hiện bàn giao tài liệu theo thống nhất, và thực hiện bảo hành chất lượng khi phát sinh.",
+      icon: Handshake,
+      isHighlighted: true
     }
   ]
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="quy-trinh" className="py-14 sm:py-20 bg-[#F4F8FD] border-b border-blue-100/70">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Quy trình làm việc</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#172554] tracking-tight">
-            Quy Trình Dịch Thuật Công Chứng Chuyên Nghiệp 4 Bước
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] xl:text-[30px] font-extrabold text-[#072B6A] tracking-tight uppercase">
+            QUY TRÌNH DỊCH THUẬT CÔNG CHỨNG CHUYÊN NGHIỆP
           </h2>
-          <p className="text-slate-600 text-base mt-3">
-            Quy trình tinh gọn, khép kín, được kiểm soát chặt chẽ giúp tiết kiệm tối đa thời gian và chi phí cho khách hàng.
-          </p>
         </div>
 
-        {/* 4 Steps Row/Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative">
+        {/* 6 Steps Grid: 2 columns on md/lg, matching Image 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-7">
           {steps.map((s, idx) => {
             const Icon = s.icon
+            if (s.isHighlighted) {
+              return (
+                <div
+                  key={idx}
+                  className="bg-[#0066FF] text-white rounded-2xl shadow-[0_0_20px_rgba(0,102,255,0.35)] hover:shadow-[0_0_26px_rgba(0,102,255,0.5)] p-5 sm:p-6 flex items-start gap-4 transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <div className="w-12 h-12 rounded-full bg-white text-[#0066FF] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <Icon className="w-6 h-6 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-tight text-white">
+                      {s.num}
+                    </h3>
+                    <p className="text-blue-100 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                </div>
+              )
+            }
+
             return (
               <div
                 key={idx}
-                className="relative bg-[#F5F8FF]/60 rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-transparent hover:bg-white/80 rounded-2xl p-5 sm:p-6 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border hover:border-blue-200 group"
               >
-                {/* Step indicator */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <span className="text-2xl font-black text-blue-300/80 group-hover:text-blue-600 transition-colors">
-                    {s.num}
-                  </span>
+                <div className="w-12 h-12 rounded-full border-2 border-[#0066FF] text-[#0066FF] bg-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform mt-0.5 shadow-xs">
+                  <Icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
-
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#172554] mb-2 leading-snug">
-                    {s.title}
+                  <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-tight text-[#0066FF]">
+                    {s.num}
                   </h3>
-
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                  <p className="text-slate-700 text-xs sm:text-sm mt-1.5 leading-relaxed">
                     {s.desc}
                   </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200/80 space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-blue-700 font-semibold">
-                    <Clock className="w-3.5 h-3.5 text-blue-600" />
-                    <span>{s.time}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-emerald-700 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>{s.highlight}</span>
-                  </div>
                 </div>
               </div>
             )
           })}
-        </div>
-
-        {/* Process CTA */}
-        <div className="mt-12 text-center">
-          <Link href="/#bao-gia">
-            <Button size="lg" className="font-bold shadow-md shadow-blue-600/25">
-              <span>Bắt Đầu Với Bước 1 – Gửi Tài Liệu Ngay</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

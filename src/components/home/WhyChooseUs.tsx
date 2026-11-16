@@ -1,103 +1,135 @@
+"use client"
+
 import React from "react"
+import Link from "next/link"
+import Image from "next/image"
 import {
   Award,
-  CheckCircle2,
-  Zap,
-  DollarSign,
+  Users,
+  Smile,
+  Languages,
   ShieldCheck,
-  Truck,
-  ArrowRight
+  Headphones
 } from "lucide-react"
-import Link from "next/link"
-import { siteConfig } from "@/config/site"
-import { Button } from "@/components/ui/button"
 
+/**
+ * Section: 6 LÝ DO BẠN NÊN CHỌN DỊCH VỤ DỊCH THUẬT CÔNG CHỨNG TẠI THÀNH ĐẠT
+ * Designed exactly matching user reference Image 2:
+ * 1. Top: Full-width / container CTA banner with background photo:
+ *    "TƯ VẤN VIÊN CỦA CHÚNG TÔI TƯ VẤN CHI TIẾT VỀ DỊCH VỤ" + "LIÊN HỆ NGAY"
+ * 2. Section Heading:
+ *    - Line 1: 6 LÝ DO BẠN NÊN CHỌN DỊCH VỤ DỊCH THUẬT CÔNG CHỨNG (Navy)
+ *    - Line 2: TẠI THÀNH ĐẠT (Royal Blue)
+ * 3. 6 Cards Grid:
+ *    - Box & line rõ ràng, rounded-none (góc vuông sắc nét)
+ *    - Blue circle icon on left, title uppercase blue + description on right
+ */
 export function WhyChooseUs() {
-  const iconMap: Record<string, React.ElementType> = {
-    Award,
-    CheckCircle2,
-    Zap,
-    DollarSign,
-    ShieldCheck,
-    Truck
-  }
+  const reasons = [
+    {
+      icon: Award,
+      title: "KINH NGHIỆM LÂU NĂM",
+      description: "Hơn 10 năm thực hiện hàng trăm dự án dịch thuật công chứng đa dạng thể loại."
+    },
+    {
+      icon: Users,
+      title: "ĐỘI NGŨ CHUYÊN NGHIỆP",
+      description: "Biên dịch viên trình độ cao, am hiểu sâu sắc về các tài liệu mà khách hàng cung cấp."
+    },
+    {
+      icon: Smile,
+      title: "CHẤT LƯỢNG VƯỢT TRỘI",
+      description: "Quy trình dịch bài bản, biên tập kỹ lưỡng, đảm bảo độ chính xác và phong cách nguyên tác."
+    },
+    {
+      icon: Languages,
+      title: "ĐA NGÔN NGỮ",
+      description: "Hỗ trợ dịch nhiều ngôn ngữ phổ biến và hiếm, đáp ứng mọi nhu cầu quốc tế."
+    },
+    {
+      icon: ShieldCheck,
+      title: "BẢO MẬT CAO",
+      description: "Cam kết bảo mật tuyệt đối mọi thông tin và tài liệu của khách hàng."
+    },
+    {
+      icon: Headphones,
+      title: "HỖ TRỢ TẬN TÂM",
+      description: "Tư vấn nhiệt tình, phản hồi nhanh chóng 24/7 và đồng hành suốt quá trình."
+    },
+  ]
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F5F8FF] border-y border-blue-100/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Giá trị cốt lõi</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#172554] tracking-tight">
-            6 Lý Do Bạn Nên Chọn Dịch Vụ Dịch Thuật Công Chứng Tại Thành Đạt
-          </h2>
-          <p className="text-slate-600 text-base mt-3">
-            Chúng tôi tạo dựng uy tín bền vững bằng chất lượng bản dịch chuẩn xác, tốc độ xử lý vượt trội và sự an tâm tuyệt đối cho mọi khách hàng.
-          </p>
+    <section className="w-full bg-white">
+      {/* 1. Top CTA Banner matching Image 2 */}
+      <div className="relative w-full overflow-hidden py-10 sm:py-14 bg-gradient-to-r from-[#0C2A66] via-[#0A255C] to-[#0A2E7A]">
+        {/* Subtle background image overlay */}
+        <div className="absolute inset-0 opacity-25 mix-blend-luminosity pointer-events-none">
+          <Image
+            src="/images/service-legal-clean.jpg"
+            alt="Tư vấn dịch thuật công chứng"
+            fill
+            className="object-cover object-center"
+          />
         </div>
 
-        {/* 6 Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {siteConfig.reasons.map((r, idx) => {
-            const Icon = iconMap[r.icon] || CheckCircle2
-            return (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-13 h-13 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-200 shadow-xs">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-2xl font-black text-slate-200 group-hover:text-blue-100 transition-colors">
-                      0{idx + 1}
-                    </span>
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-4 sm:space-y-5">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight uppercase leading-snug">
+            TƯ VẤN VIÊN CỦA CHÚNG TÔI TƯ VẤN CHI TIẾT VỀ DỊCH VỤ
+          </h3>
+
+          <div>
+            <Link href="/dich-thuat-cong-chung#bao-gia-form">
+              <button className="px-7 sm:px-9 py-2.5 sm:py-3 rounded-full bg-[#0066FF] hover:bg-[#0052CC] text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-lg shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+                LIÊN HỆ NGAY
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. 6 Lý Do Bạn Nên Chọn... matching Image 2 */}
+      <div className="py-14 sm:py-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Heading: Synchronized typography on 1 line */}
+          <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-14">
+            <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] xl:text-[30px] font-extrabold text-[#072B6A] tracking-tight uppercase md:whitespace-nowrap">
+              6 LÝ DO BẠN NÊN CHỌN DỊCH VỤ DỊCH THUẬT CÔNG CHỨNG
+            </h2>
+            <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-extrabold text-[#0066FF] tracking-tight uppercase mt-1 sm:mt-1.5">
+              TẠI THÀNH ĐẠT
+            </div>
+          </div>
+
+          {/* 6 Cards Grid (2 rows x 3 columns) with box & line rõ, rounded-none */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {reasons.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={idx}
+                  className="bg-white rounded-none p-5 sm:p-6 border border-slate-300 shadow-md hover:shadow-lg hover:border-blue-400 transition-all duration-200 flex items-center gap-4 sm:gap-5"
+                >
+                  {/* Round Blue Icon on LEFT */}
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#0066FF] text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2]" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#172554] mb-3 leading-snug group-hover:text-[#2563EB] transition-colors">
-                    {r.title}
-                  </h3>
-
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {r.desc}
-                  </p>
+                  {/* Content on RIGHT */}
+                  <div className="flex-1">
+                    <h3 className="text-sm sm:text-base font-bold text-[#0055D4] uppercase tracking-wide">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-1">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-
-                <div className="pt-5 mt-4 border-t border-slate-100 flex items-center text-xs font-bold text-[#2563EB]">
-                  <span className="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                    Cam kết chuẩn chất lượng Thành Đạt <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Bottom Banner */}
-        <div className="mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-blue-200 shadow-md flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center lg:text-left">
-            <h4 className="text-lg sm:text-xl font-bold text-[#172554]">
-              Bạn cần dịch thuật công chứng gấp cho ngày mai?
-            </h4>
-            <p className="text-slate-600 text-sm">
-              Gửi tài liệu ngay hôm nay, chúng tôi xử lý trong đêm để bạn nhận kết quả sớm nhất.
-            </p>
+              )
+            })}
           </div>
-          <div className="shrink-0 flex items-center gap-3">
-            <Link href="/#bao-gia">
-              <Button size="lg" className="font-bold shadow-md">
-                Gửi Hồ Sơ Báo Giá Ngay
-              </Button>
-            </Link>
-            <a href={`tel:${siteConfig.hotline}`}>
-              <Button variant="outline" size="lg" className="font-bold">
-                Gọi {siteConfig.hotlineDisplay}
-              </Button>
-            </a>
-          </div>
+
         </div>
       </div>
     </section>

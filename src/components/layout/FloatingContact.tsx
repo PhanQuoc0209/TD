@@ -42,7 +42,7 @@ export function FloatingContact() {
 
         {/* Quick Quotation Anchor Button */}
         <Link
-          href="/#bao-gia"
+          href="/dich-thuat-cong-chung#bao-gia-form"
           className="pointer-events-auto hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white"
         >
           <Send className="w-4 h-4" />
@@ -106,7 +106,7 @@ export function FloatingContact() {
         </a>
 
         <Link
-          href="/#bao-gia"
+          href="/dich-thuat-cong-chung#bao-gia-form"
           className="flex-1 flex flex-col items-center justify-center py-1 text-slate-800 hover:text-blue-600 font-semibold text-[11px]"
         >
           <div className="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center mb-0.5">

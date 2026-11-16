@@ -116,9 +116,9 @@ export function Header() {
 
   return (
     <header className="w-full z-50 sticky top-0 transition-all duration-300">
-      {/* Main Navbar - Designed similarly to Image 2: Vạn Tín Style with THANH DAT ("như hộp bóng nổi lên có line") */}
+      {/* Main Navbar - Box nổi lên với shadow và bottom line phân tách rõ ràng */}
       <div
-        className={`w-full bg-white shadow-md border-b border-slate-200/90 transition-all duration-200 ${
+        className={`w-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.07)] border-b border-slate-200/90 transition-all duration-200 ${
           isScrolled
             ? "py-2"
             : "py-2.5 sm:py-3"
@@ -402,7 +402,7 @@ export function Header() {
               </div>
 
               <Link
-                href="/#bao-gia"
+                href="/dich-thuat-cong-chung#bao-gia-form"
                 onClick={closeMobileMenu}
                 className="w-full block text-center py-2.5 bg-[#0C66FF] text-white rounded-lg font-bold text-sm shadow-md"
               >

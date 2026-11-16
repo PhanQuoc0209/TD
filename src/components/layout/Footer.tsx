@@ -235,7 +235,7 @@ export function Footer() {
 
             <div className="pt-2">
               <Link
-                href="/#bao-gia"
+                href="/dich-thuat-cong-chung#bao-gia-form"
                 className="w-full inline-block text-center py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg text-sm transition-colors shadow-md"
               >
                 Gửi Yêu Cầu Báo Giá Nhanh

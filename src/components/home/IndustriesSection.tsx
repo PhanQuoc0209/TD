@@ -1,84 +1,79 @@
+"use client"
+
 import React from "react"
 import {
-  Scale,
-  TrendingUp,
-  Landmark,
-  HeartPulse,
+  Sprout,
   Wrench,
-  HardHat,
-  Laptop,
-  Palmtree,
-  GraduationCap,
-  Pickaxe,
-  Ship,
-  Boxes,
-  Flame,
-  Leaf,
-  Shirt,
-  Fish,
-  Radio,
-  Shield,
-  Car,
+  Megaphone,
+  TrendingUp,
+  BookOpen,
+  Key,
   Microscope,
-  Briefcase
+  Leaf,
+  Landmark,
+  Pill,
+  HeartPulse,
+  Radio,
+  HardHat,
+  Truck,
+  Scissors,
+  Scale
 } from "lucide-react"
-import { siteConfig } from "@/config/site"
 
+/**
+ * Section: HỖ TRỢ DỊCH THUẬT CÔNG CHỨNG HƠN 20+ NGÀNH NGHỀ
+ * Designed exactly matching user reference image:
+ * - 16 cards (8 columns x 2 rows on desktop)
+ * - CSS style: rounded-2xl, border-2 border-blue-200, luminous blue halo glow shadow
+ * - Navy icon on top, bold uppercase navy title below
+ */
 export function IndustriesSection() {
-  const iconMap: Record<string, React.ElementType> = {
-    Scale,
-    TrendingUp,
-    Landmark,
-    HeartPulse,
-    Wrench,
-    HardHat,
-    Laptop,
-    Palmtree,
-    GraduationCap,
-    Pickaxe,
-    Ship,
-    Boxes,
-    Flame,
-    Leaf,
-    Shirt,
-    Fish,
-    Radio,
-    Shield,
-    Car,
-    Microscope
-  }
+  const industries = [
+    { name: "NÔNG NGHIỆP", icon: Sprout },
+    { name: "KỸ THUẬT", icon: Wrench },
+    { name: "MARKETING", icon: Megaphone },
+    { name: "TÀI CHÍNH", icon: TrendingUp },
+    { name: "GIÁO DỤC", icon: BookOpen },
+    { name: "KHÁCH SẠN", icon: Key },
+    { name: "KHOA HỌC", icon: Microscope },
+    { name: "MÔI TRƯỜNG", icon: Leaf },
+    { name: "NGÂN HÀNG", icon: Landmark },
+    { name: "DƯỢC PHẨM", icon: Pill },
+    { name: "Y TẾ", icon: HeartPulse },
+    { name: "VIỄN THÔNG", icon: Radio },
+    { name: "XÂY DỰNG", icon: HardHat },
+    { name: "VẬN TẢI", icon: Truck },
+    { name: "MAY MẶC", icon: Scissors },
+    { name: "LUẬT PHÁP", icon: Scale }
+  ]
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section id="nganh-nghe" className="py-14 sm:py-20 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Chuyên môn hóa</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#172554] tracking-tight">
-            Hỗ Trợ Dịch Thuật Chuyên Sâu Hơn 20+ Ngành Nghề
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] xl:text-[30px] font-extrabold text-[#072B6A] tracking-tight uppercase">
+            HỖ TRỢ DỊCH THUẬT CÔNG CHỨNG HƠN 20+ NGÀNH NGHỀ
           </h2>
-          <p className="text-slate-600 text-base mt-3">
-            Mỗi bản dịch được phụ trách bởi biên dịch viên có văn bằng hoặc kinh nghiệm thực chiến trong chính ngành nghề đó, đảm bảo 100% chuẩn thuật ngữ kỹ thuật.
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2.5 max-w-3xl mx-auto leading-relaxed">
+            <strong className="text-[#072B6A] font-bold">Thành Đạt</strong> cung cấp dịch vụ dịch thuật công chứng chuyên nghiệp, hỗ trợ hơn 20 lĩnh vực ngành nghề khác nhau, đảm bảo nhanh chóng và chính xác.
           </p>
         </div>
 
-        {/* 20 Industries Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4">
-          {siteConfig.industries.map((ind, idx) => {
-            const Icon = iconMap[ind.icon] || Briefcase
+        {/* 16 Industries Grid - 8 columns on lg, 4 on sm, 2 on mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4">
+          {industries.map((item, idx) => {
+            const Icon = item.icon
             return (
               <div
                 key={idx}
-                className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/60 hover:bg-blue-50/70 hover:border-blue-300 transition-all duration-200 group"
+                className="bg-white rounded-2xl border-2 border-blue-200/90 shadow-[0_0_18px_rgba(59,130,246,0.28)] hover:shadow-[0_0_24px_rgba(37,99,235,0.48)] hover:border-blue-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center justify-center p-3 sm:p-3.5 aspect-square cursor-pointer group"
               >
-                <div className="w-9 h-9 rounded-lg bg-white border border-slate-200 text-[#2563EB] flex items-center justify-center shrink-0 group-hover:bg-[#2563EB] group-hover:text-white transition-colors shadow-xs">
-                  <Icon className="w-4 h-4" />
+                <div className="flex-1 flex items-center justify-center">
+                  <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-[#072B6A] group-hover:text-[#0055D4] group-hover:scale-110 transition-all duration-300 stroke-[2.2]" />
                 </div>
-                <span className="text-xs font-bold text-slate-800 group-hover:text-[#2563EB] transition-colors leading-tight">
-                  {ind.name}
+                <span className="text-[10px] sm:text-[11px] font-black text-[#072B6A] group-hover:text-[#0055D4] uppercase tracking-tight text-center transition-colors line-clamp-1">
+                  {item.name}
                 </span>
               </div>
             )

@@ -1,192 +1,118 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import Link from "next/link"
-import {
-  FileCheck2,
-  GraduationCap,
-  Building2,
-  Cpu,
-  Stamp,
-  Users,
-  ArrowRight,
-  Clock,
-  Check,
-  Send,
-  Phone,
-  MessageCircle
-} from "lucide-react"
-import { siteConfig } from "@/config/site"
-import { Button } from "@/components/ui/button"
+import { BookOpen, ArrowRight } from "lucide-react"
 
+/**
+ * Section: CÁC LOẠI HÌNH DỊCH THUẬT CÔNG CHỨNG PHỔ BIẾN TẠI THÀNH ĐẠT
+ * Designed exactly matching user reference image:
+ * 1. Title on 1 single line (synchronized font, no wrapping of "BIẾN"):
+ *    - Line 1: CÁC LOẠI HÌNH DỊCH THUẬT CÔNG CHỨNG PHỔ BIẾN (Navy #072B6A)
+ *    - Line 2: TẠI THÀNH ĐẠT (Royal Blue #0066FF)
+ * 2. 3 Cards with high-resolution public stock photos:
+ *    - HỒ SƠ DU HỌC VÀ VISA (/images/service-visa-clean.jpg)
+ *    - GIẤY TỜ CÁ NHÂN (/images/service-personal-clean-cropped.jpg)
+ *    - GIẤY TỜ PHÁP LÝ (/images/service-legal-clean.jpg)
+ * 3. "Xem tất cả" button navigates to /dich-thuat-cong-chung
+ */
 export function ServicesSection() {
-  const iconMap: Record<string, React.ElementType> = {
-    FileCheck: FileCheck2,
-    GraduationCap: GraduationCap,
-    Building2: Building2,
-    Cpu: Cpu,
-    Stamp: Stamp,
-    Users: Users
-  }
+  const popularServices = [
+    {
+      id: "du-hoc-visa",
+      title: "HỒ SƠ DU HỌC VÀ VISA",
+      image: "/images/service-du-hoc-visa-user.jpg",
+      description:
+        "Dịch thuật công chứng hộ chiếu, bằng cấp, bảng điểm, giấy khai sinh giúp hoàn thiện hồ sơ du học và xin visa",
+      href: "/dich-thuat-cong-chung"
+    },
+    {
+      id: "giay-to-ca-nhan",
+      title: "GIẤY TỜ CÁ NHÂN",
+      image: "/images/service-giay-to-ca-nhan-user.jpg",
+      description:
+        "Dịch chứng minh nhân dân, hộ khẩu, giấy kết hôn, khai sinh, các giấy tờ tùy thân phục vụ thủ tục hành chính trong",
+      href: "/dich-thuat-cong-chung"
+    },
+    {
+      id: "giay-to-phap-ly",
+      title: "GIẤY TỜ PHÁP LÝ",
+      image: "/images/service-phap-ly-clean.jpg",
+      description:
+        "Chuyển ngữ hợp đồng, giấy ủy quyền, bản án, quyết định tòa án đảm bảo pháp lý rõ ràng, đúng ngôn ngữ chuyên",
+      href: "/dich-thuat-cong-chung"
+    }
+  ]
 
   return (
-    <section id="dich-vu" className="py-16 sm:py-20 bg-white">
+    <section id="dich-vu-pho-bien" className="pt-10 sm:pt-14 pb-14 sm:pb-20 bg-[#F4F8FD] border-b border-blue-100/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Dịch vụ cốt lõi</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#172554] tracking-tight">
+        
+        {/* Section Heading: Synchronized web typography on 1 line */}
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] xl:text-[32px] font-extrabold text-[#072B6A] tracking-tight uppercase md:whitespace-nowrap">
             CÁC LOẠI HÌNH DỊCH THUẬT CÔNG CHỨNG PHỔ BIẾN
           </h2>
-          <p className="text-slate-600 text-base mt-3">
-            Thành Đạt cung cấp dịch vụ dịch thuật công chứng cho nhiều loại giấy tờ quan trọng như hồ sơ du học, visa, giấy tờ cá nhân và tài liệu pháp lý, đảm bảo nhanh chóng, chính xác và hợp pháp tại Hà Nội & Quảng Ninh.
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-extrabold text-[#0066FF] tracking-tight uppercase mt-1 sm:mt-1.5">
+            TẠI THÀNH ĐẠT
+          </div>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-3xl mx-auto">
+            Thành Đạt cung cấp dịch vụ dịch thuật công chứng cho nhiều loại giấy tờ quan trọng như hồ sơ du học, visa, giấy tờ cá nhân và tài liệu pháp lý, đảm bảo nhanh chóng, chính xác và hợp pháp.
           </p>
         </div>
 
-        {/* 6 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {siteConfig.services.map((svc) => {
-            const Icon = iconMap[svc.icon] || FileCheck2
-            return (
-              <div
-                key={svc.id}
-                id={svc.id}
-                className={`rounded-2xl border transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 relative group ${
-                  svc.isPopular
-                    ? "border-blue-400 bg-gradient-to-b from-blue-50/50 via-white to-white shadow-lg ring-1 ring-blue-400/30"
-                    : "border-slate-200/90 bg-white hover:border-blue-300 hover:shadow-xl"
-                }`}
-              >
-                {/* Popular tag */}
-                {svc.isPopular && (
-                  <div className="absolute -top-3 right-6 bg-[#2563EB] text-white text-[11px] font-extrabold px-3 py-0.5 rounded-full shadow-sm tracking-wide uppercase">
-                    Phổ biến nhất
-                  </div>
-                )}
+        {/* 3 Cards Grid with ultra-sharp public stock photos */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {popularServices.map((item) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="bg-white rounded-2xl border border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer"
+            >
+              {/* Card Top: High-Res Public Cover Photo */}
+              <div className="relative w-full aspect-[314/206] overflow-hidden bg-slate-100">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 select-none"
+                />
+              </div>
 
+              {/* Card Bottom: Content */}
+              <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between bg-white">
                 <div>
-                  {/* Icon & Title */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#2563EB] flex items-center justify-center shrink-0 group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-200 shadow-xs">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-[#172554] leading-snug group-hover:text-[#2563EB] transition-colors uppercase">
-                        {svc.title}
-                      </h3>
-                      <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-500">
-                        <span className="flex items-center gap-1 text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">
-                          <Clock className="w-3 h-3" />
-                          <span>{svc.turnaroundTime}</span>
-                        </span>
-                        <span className="text-slate-400 font-medium">•</span>
-                        <span className="text-[#2563EB] font-bold">{svc.priceFrom}</span>
-                      </div>
-                    </div>
+                  {/* Icon + Title */}
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <BookOpen className="w-5 h-5 text-[#0066FF] shrink-0" />
+                    <h3 className="font-extrabold text-base sm:text-lg text-[#072B6A] uppercase tracking-wide group-hover:text-[#0066FF] transition-colors">
+                      {item.title}
+                    </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                    {svc.description}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item.description}
                   </p>
-
-                  {/* Direct hotline consultation callout on card */}
-                  <div className="mb-4 p-2.5 bg-slate-50 rounded-lg flex items-center justify-between border border-slate-100">
-                    <span className="text-xs text-slate-500 font-medium">Tư vấn nhanh:</span>
-                    <a
-                      href={`tel:${siteConfig.hotline}`}
-                      className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
-                    >
-                      <Phone className="w-3 h-3 text-emerald-600 fill-emerald-600" />
-                      <span>{siteConfig.hotlineDisplay}</span>
-                    </a>
-                  </div>
-
-                  {/* Key Features list */}
-                  <div className="space-y-2 mb-4 pt-3 border-t border-slate-100">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Ưu điểm dịch vụ:
-                    </span>
-                    {svc.features.slice(0, 3).map((f, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                        <Check className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Common documents sample */}
-                  <div className="bg-blue-50/50 p-3 rounded-xl mb-4 border border-blue-100 text-xs">
-                    <span className="font-semibold text-slate-700 block mb-1 text-[11px]">
-                      Giấy tờ tiếp nhận phổ biến:
-                    </span>
-                    <ul className="text-slate-600 space-y-1 list-disc list-inside">
-                      {svc.commonDocs.slice(0, 2).map((doc, idx) => (
-                        <li key={idx} className="truncate">
-                          {doc}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Bottom Card Actions */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                  <Link
-                    href={`/dich-vu-dich-thuat#${svc.id}`}
-                    className="text-xs font-bold text-[#2563EB] hover:text-blue-800 flex items-center gap-1 transition-colors"
-                  >
-                    <span>Xem chi tiết</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  <Link href="/#bao-gia">
-                    <Button size="sm" variant={svc.isPopular ? "default" : "secondary"}>
-                      <Send className="w-3 h-3 mr-1" />
-                      <span>Báo giá</span>
-                    </Button>
-                  </Link>
                 </div>
               </div>
-            )
-          })}
+            </Link>
+          ))}
         </div>
 
-        {/* Conversion CTA Banner inspired directly by Vạn Tín */}
-        <div className="mt-14 bg-gradient-to-r from-[#172554] via-[#1E3A8A] to-[#2563EB] rounded-2xl p-6 sm:p-8 text-white text-center shadow-xl space-y-4">
-          <p className="text-xs sm:text-sm font-bold tracking-widest text-amber-300 uppercase">
-            CLICK NÚT LIÊN HỆ NGAY PHÍA DƯỚI ĐÂY ĐỂ ĐƯỢC
-          </p>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight">
-            TƯ VẤN VIÊN CỦA CHÚNG TÔI TƯ VẤN CHI TIẾT VỀ DỊCH VỤ
-          </h3>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/#bao-gia">
-              <Button size="lg" variant="white" className="font-bold shadow-md">
-                <Send className="w-4 h-4 mr-1 text-[#2563EB]" />
-                <span>LIÊN HỆ BÁO GIÁ NGAY</span>
-              </Button>
-            </Link>
-            <a
-              href={siteConfig.zaloUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0068FF] text-white font-bold text-sm hover:bg-blue-600 transition-colors shadow-md"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>CHAT ZALO VỚI TƯ VẤN VIÊN</span>
-            </a>
-            <a
-              href={`tel:${siteConfig.hotline}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition-colors shadow-md"
-            >
-              <Phone className="w-4 h-4" />
-              <span>GỌI HOTLINE: {siteConfig.hotlineDisplay}</span>
-            </a>
-          </div>
+        {/* Action Button: When clicked, navigates to /dich-thuat-cong-chung */}
+        <div className="text-center mt-10 sm:mt-12">
+          <Link
+            href="/dich-thuat-cong-chung"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 rounded-full bg-[#005AE2] hover:bg-[#0047BA] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
+          >
+            <span>Xem tất cả dịch vụ chuyên ngành &amp; Hợp pháp hóa lãnh sự</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
+
       </div>
     </section>
   )

@@ -12,6 +12,13 @@ import {
 import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import { QuotationForm } from "@/components/quote/QuotationForm"
+import { ServicesSection } from "@/components/home/ServicesSection"
+import { WhyChooseUs } from "@/components/home/WhyChooseUs"
+import { ProcessSection } from "@/components/home/ProcessSection"
+import { IndustriesSection } from "@/components/home/IndustriesSection"
+import { LanguagesGrid } from "@/components/home/LanguagesGrid"
+import { FAQSection } from "@/components/home/FAQSection"
+import { ContactCTA } from "@/components/home/ContactCTA"
 
 export const metadata: Metadata = {
   title: "Dịch Thuật Công Chứng Tư Pháp Lấy Ngay Trong Ngày | Dịch Thuật Thành Đạt",
@@ -96,8 +103,11 @@ export default function DichThuatCongChungPage() {
         </div>
       </section>
 
-      {/* Legal Status & Value Explanation */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* 1. Các Loại Hình Dịch Thuật Công Chứng Phổ Biến (Moved from Homepage per user request) */}
+      <ServicesSection />
+
+      {/* 2. Legal Status & Value Explanation */}
+      <section className="py-16 sm:py-20 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
@@ -203,6 +213,18 @@ export default function DichThuatCongChungPage() {
         </div>
       </section>
 
+      {/* 3. Quy Trình Dịch Thuật Công Chứng Chuyên Nghiệp */}
+      <ProcessSection />
+
+      {/* 4. 6 Lý Do Nên Chọn Dịch Thuật Công Chứng Tại Thành Đạt */}
+      <WhyChooseUs />
+
+      {/* 5. Hỗ Trợ Dịch Thuật Hơn 20+ Ngành Nghề Chuyên Sâu */}
+      <IndustriesSection />
+
+      {/* 6. Hỗ Trợ Hơn 20+ Ngôn Ngữ Phổ Biến Nhất */}
+      <LanguagesGrid />
+
       {/* Pricing Table Section */}
       <section id="bang-gia" className="py-16 sm:py-20 bg-[#F5F8FF] border-t border-blue-100 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,6 +297,12 @@ export default function DichThuatCongChungPage() {
           <QuotationForm />
         </div>
       </section>
+
+      {/* FAQ – Khách Hàng Thường Quan Tâm */}
+      <FAQSection />
+
+      {/* Liên Hệ Tư Vấn & Trụ Sở */}
+      <ContactCTA />
     </div>
   )
 }
